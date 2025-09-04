@@ -1,0 +1,5 @@
+[
+  { "id": "vodafone-giga", "title": "Vodafone GigaMobil M", "benefits": ["20 GB 5G", "Allnet-Flat", "EU-Roaming inkl."], "price": "19,99 € / Monat", "link": "#", "tier": "standard" },
+  { "id": "1und1-home", "title": "1&1 Home DSL 50", "benefits": ["50 MBit/s", "WLAN-Router inkl.", "Monatlich kündbar"], "price": "24,99 € / Monat", "link": "#", "tier": "standard" },
+  { "id": "smava-kredit", "title": "Smava Kreditvergleich", "benefits": ["Top Zinssätze", "Unverbindlich", "Schnelle Zusage"], "price": "ab 1,99% eff. p.a.", "link": "#", "tier": "premium" }
+]

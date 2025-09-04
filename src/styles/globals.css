@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* OQD renk paleti (Tailwind v4 tokenleri) */
+@theme {
+  --color-background: #1f1f2d; /* Anthrazit */
+  --color-secondary: #7e3fff;  /* Neon-Violett */
+  --color-accent: #00ffc8;     /* Neon-Türkis */
+  --color-pink: #ff3d8d;       /* Neon-Pink */
+  --color-premium: #ffd166;    /* Premium */
+}
+
+html, body { height: 100%; }
+body { @apply bg-background text-white; }
+
+/* küçük yardımcılar */
+.glass-card { @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-lg; }
+.btn-primary { @apply rounded-lg bg-accent px-5 py-2.5 font-semibold text-black hover:bg-pink hover:text-white transition; }
+.btn-ghost { @apply rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-white/90 hover:bg-white/10 transition; }
+
+/* extra util'ler */
+.bubble { @apply rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90 backdrop-blur; }
+.bubble-accent { background-image: linear-gradient(135deg, rgba(0,255,200,.15), rgba(126,63,255,.15)); }
+
+/* extra util'ler */
+.bubble { @apply rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90 backdrop-blur; }
+.bubble-accent { background-image: linear-gradient(135deg, rgba(0,255,200,.15), rgba(126,63,255,.15)); }
