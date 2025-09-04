@@ -1,29 +1,58 @@
 import offers from "@/data/offers.json";
-type Offer = { id: string; title: string; benefits: string[]; price: string; link?: string; tier?: "standard" | "premium"; };
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/design-system/Card";
+import { Button } from "@/components/design-system/Button";
+
+type Offer = {
+  id: string;
+  title: string;
+  benefits: string[];
+  price: string;
+  link?: string;
+  tier?: "standard" | "premium";
+};
+
 export default function Offers() {
   const data = offers as Offer[];
+
   return (
-    <section id="offers" className="mx-auto max-w-6xl px-4 py-16">
-      <h2 className="text-3xl font-bold">Aktuelle Angebote</h2>
+    <section id="offers" className="content-max-width section-spacing">
+      <h2 className="gradient-text text-3xl md:text-4xl font-bold">Aktuelle Angebote</h2>
       <p className="mt-2 text-white/80">Klar, verständlich, ohne Kleingedrucktes.</p>
+
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((offer) => (
-          <article key={offer.id} className="glass-card p-6 hover:shadow-lg transition">
-            <div className="flex items-baseline justify-between">
+          <Card key={offer.id} variant="glass" glow="auto" padding="lg">
+            <CardHeader className="flex items-start justify-between">
               <h3 className="text-xl font-semibold">{offer.title}</h3>
-              <span className={`rounded-full px-2 py-1 text-xs font-semibold ${offer.tier==="premium" ? "bg-[color:var(--color-premium)]/20 text-[color:var(--color-premium)]" : "bg-white/10 text-white/80"}`}>
-                {offer.tier==="premium" ? "Premium" : "Standard"}
+              <span
+                className={`rounded-full px-2 py-1 text-xs font-semibold ${
+                  offer.tier === "premium"
+                    ? "bg-[#FFD166]/20 text-[#FFD166]"
+                    : "bg-white/10 text-white/80"
+                }`}
+              >
+                {offer.tier === "premium" ? "Premium" : "Standard"}
               </span>
-            </div>
-            <ul className="mt-3 space-y-1 text-sm text-white/80">{offer.benefits.map((b)=> (<li key={b}>• {b}</li>))}</ul>
-            <div className="mt-6 flex items-end justify-between">
+            </CardHeader>
+
+            <CardContent>
+              <ul className="space-y-1 text-sm text-white/80">
+                {offer.benefits.map((b) => (
+                  <li key={b}>• {b}</li>
+                ))}
+              </ul>
+            </CardContent>
+
+            <CardFooter className="items-end justify-between">
               <div>
-                <div className="text-2xl font-bold text-[color:var(--color-accent)]">{offer.price}</div>
+                <div className="text-2xl font-bold text-[color:var(--color-accent-turquoise)]">{offer.price}</div>
                 <div className="text-xs text-white/60">inkl. MwSt.</div>
               </div>
-              <a className="btn-primary" href={offer.link || "#"} target="_blank" rel="noreferrer">Deal sichern</a>
-            </div>
-          </article>
+              <Button asChild={undefined as any} size="md" className="min-w-[140px]">
+                <a href={offer.link || "#"} target="_blank" rel="noreferrer">Deal sichern</a>
+              </Button>
+            </CardFooter>
+          </Card>
         ))}
       </div>
     </section>
